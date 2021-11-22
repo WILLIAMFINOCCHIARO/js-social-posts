@@ -89,14 +89,17 @@ const posts = [
 
 
 
-
-    
-    
-    let items = "";
-
-
 for (i = 0; i < posts.length; i++) {
     console.log(posts[i]);
+    drawTeamMember(posts[i]);
+
+};
+
+
+// metto tutto all'interno della funzione 
+function drawTeamMember (member) {
+    // creo una variabile al fine di aggiungere le classi
+    let items = "";
     // creare delle variabili con gli oggetti estrapolati
     let IdPost = posts[i].id;
     let IdContent = posts[i].content;
@@ -143,13 +146,10 @@ for (i = 0; i < posts.length; i++) {
 
     `
     
-
-
-
-};
-
-
 //inseriamo gli elementi nel container
 const container = document.getElementById("container");
 
 container.innerHTML += items;
+
+
+};
