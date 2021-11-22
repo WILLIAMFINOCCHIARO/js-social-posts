@@ -86,18 +86,26 @@ const posts = [
     console.log(posts);
 
 
+// esecuzione della funzione 
 
+DrawTeam();
 
+// metto tutto all'interno della funzione 
 
-for (i = 0; i < posts.length; i++) {
-    console.log(posts[i]);
-    drawTeamMember(posts[i]);
+function DrawTeam () {  
+    for (i = 0; i < posts.length; i++) {
+        console.log(posts[i]);
+        drawTeamMember(posts[i]);
+    }
 
 };
 
 
+
+
+
 // metto tutto all'interno della funzione 
-function drawTeamMember (member) {
+function drawTeamMember () {
     // creo una variabile al fine di aggiungere le classi
     let items = "";
     // creare delle variabili con gli oggetti estrapolati
@@ -145,11 +153,11 @@ function drawTeamMember (member) {
         </div>
 
     `
-    
-//inseriamo gli elementi nel container
-const container = document.getElementById("container");
+        
+    //inseriamo gli elementi nel container
+    const container = document.getElementById("container");
 
-container.innerHTML += items;
+    container.innerHTML += items;
 
 
 };
