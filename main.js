@@ -7,7 +7,10 @@
 //  la relativa card: nome autore, foto profilo, data, testo del post, 
 //  immagine (non tutti i post devono avere una immagine), numero di likes.
 // Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es.
-//  Unsplash (https://unsplash.it/300/300?image=<id>) - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed. - Rendiamo il tasto "Mi Piace" cliccabile con incremento del counter dei like
+//  Unsplash (https://unsplash.it/300/300?image=<id>) -
+//  Prendendo come riferimento il layout di esempio presente nell'html, 
+//  stampiamo i post del nostro feed. - Rendiamo il tasto "Mi Piace" 
+//  cliccabile con incremento del counter dei like
 // Formattare le date in formato italiano (gg/mm/aaaa)
 // Gestire l'assenza dell'immagine profilo con un elemento di fallback che 
 // contiene le iniziali dell'utente (es. Luca Formicola > LF).
@@ -79,3 +82,74 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+    console.log(posts);
+
+
+
+
+
+
+    
+    
+    let items = "";
+
+
+for (i = 0; i < posts.length; i++) {
+    console.log(posts[i]);
+    // creare delle variabili con gli oggetti estrapolati
+    let IdPost = posts[i].id;
+    let IdContent = posts[i].content;
+    let IdMedia = posts[i].media;
+    let IdAuthor = posts[i].author;
+    let IdLikes = posts[i].likes;
+    let IdDate = posts[i].created;
+
+      //  creare classi da inserire nel DOM
+
+    
+    items += 
+    `
+    <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${IdMedia}" alt="${IdAuthor.name}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${IdAuthor.name}</div>
+                        <div class="post-meta__time">${IdDate}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${IdContent}</div>
+            <div class="post__image">
+                <img src=${IdAuthor.image} alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="${IdPost}">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${IdLikes}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
+
+    `
+    
+
+
+
+};
+
+
+//inseriamo gli elementi nel container
+const container = document.getElementById("container");
+
+container.innerHTML += items;
