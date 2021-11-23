@@ -114,7 +114,8 @@ function drawTeamMember () {
     let IdMedia = posts[i].media;
     let IdAuthor = posts[i].author;
     let IdLikes = posts[i].likes;
-    let IdDate = posts[i].created;
+    // primo bonus
+    let IdDate = new Date (posts[i].created);
 
       //  creare classi da inserire nel DOM
 
@@ -161,3 +162,25 @@ function drawTeamMember () {
 
 
 };
+
+// bonus
+// 1-Formattare le date in formato italiano (gg/mm/aaaa)
+// 2-Gestire l'assenza dell'immagine profilo con un 
+// elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
+// 3-Al click su un pulsante "Mi Piace" di un post, incrementare il contatore di like
+//  al post e cambiare colore al testo del bottone.
+
+
+// 1-Formattare le date in formato italiano (gg/mm/aaaa)
+
+
+
+
+
+// 3-Al click su un pulsante "Mi Piace" di un post, incrementare il contatore di like
+//  al post e cambiare colore al testo del bottone.
+
+// seleziono il pulsante Mi piace
+
+let Likes = document.querySelector(".like-button__label");
+
